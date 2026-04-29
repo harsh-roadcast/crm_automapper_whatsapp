@@ -21,6 +21,7 @@ class Settings(BaseSettings):
         default="postgresql+asyncpg://postgres:postgres@localhost:5432/crm_automapper"
     )
     redis_url: str = "redis://localhost:6379/0"
+    inactivity_timeout_minutes: int = 10
 
     whatsapp_verify_token: str = ""
     whatsapp_access_token: str = ""
@@ -32,6 +33,7 @@ class Settings(BaseSettings):
     zoho_client_secret: str = ""
     zoho_refresh_token: str = ""
     zoho_base_url: str = "https://www.zohoapis.in"
+    zoho_leads_module: str = "Leads"
 
 
 @lru_cache

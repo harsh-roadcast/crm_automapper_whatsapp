@@ -90,12 +90,12 @@ def test_whatsapp_webhook_verification_and_message_persistence() -> None:
     duplicate_response = client.post("/api/v1/webhooks/whatsapp", json=payload)
 
     assert webhook_response.status_code == 200
-    assert webhook_response.json() == {"status": "accepted", "processed": 1, "duplicates": 0}
+    assert webhook_response.json() == {"status": "accepted", "processed": 1, "duplicates": 0, "synced": 0}
     assert duplicate_response.status_code == 200
-    assert duplicate_response.json() == {"status": "accepted", "processed": 0, "duplicates": 1}
+    assert duplicate_response.json() == {"status": "accepted", "processed": 0, "duplicates": 1, "synced": 0}
     assert len(stub_client.sent_payloads) == 1
     assert stub_client.sent_payloads[0][0]["type"] == "text"
-    assert stub_client.sent_payloads[0][1]["interactive"]["type"] == "text" if False else True
+    assert stub_client.sent_payloads[0][1]["interactive"]["type"] == "list"
 
     async def fetch_lead() -> Lead | None:
         async with session_factory() as session:
