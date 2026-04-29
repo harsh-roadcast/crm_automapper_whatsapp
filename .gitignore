@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+__pycache__/
+*.pyc
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local files
+uploads/
+temp/
+cache/
+
+# Credentials & Secrets
+credentials.json
+secrets.json
+config.local.js

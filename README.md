@@ -68,6 +68,35 @@ uv run python main.py
 uv run celery -A backend.app.api.tasks.reengagement_tasks.celery_app worker --loglevel=info
 ```
 
+## Helper scripts
+
+You can use the top-level scripts directory instead of typing the commands manually.
+
+1. Prepare local dependencies and initialize the database.
+
+```bash
+./scripts/setup_backend.sh
+```
+
+2. Run the FastAPI backend.
+
+```bash
+./scripts/run_backend.sh
+```
+
+3. Run the Celery worker for inactivity jobs.
+
+```bash
+./scripts/run_worker.sh
+```
+
+Optional environment overrides:
+
+- `HOST=127.0.0.1 ./scripts/run_backend.sh`
+- `PORT=9000 ./scripts/run_backend.sh`
+- `RELOAD=0 ./scripts/run_backend.sh`
+- `LOG_LEVEL=debug ./scripts/run_worker.sh`
+
 ## Environment variables
 
 Required for the full integration:
